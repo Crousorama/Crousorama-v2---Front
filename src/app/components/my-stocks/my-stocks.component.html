@@ -1,0 +1,39 @@
+<main>
+
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+  <div class="total-balance-container">
+    <span class="amount">{{totalAmount | number: '1.2-2'}} €</span>
+    <span class="subtitle">Total portfolio</span>
+  </div>
+
+  <div class="all-stocks-container">
+
+    <div class="stock-container" *ngFor="let us of userStocks">
+      <section>
+        <section class="names">
+          <b>{{us.symbol}}</b>
+          <span>{{croppedName(us.fullName)}}</span>
+        </section>
+
+        <section class="values" [ngClass]="{'green': getPercentage(us) > 0, 'red': getPercentage(us) < 0}">
+          <span>{{getCurrentValue(us.symbol, us.qty)}}</span>
+          <section>
+            <span>{{getPercentage(us) | number:'1.2-2'}} %</span>
+            <mat-icon *ngIf="getPercentage(us) > 0">trending_up</mat-icon>
+            <mat-icon *ngIf="getPercentage(us) < 0">trending_down</mat-icon>
+          </section>
+        </section>
+      </section>
+    </div>
+
+    <div class="stock-container">
+      <section class="add-stock">
+        <mat-icon>add</mat-icon>
+      </section>
+    </div>
+
+
+  </div>
+
+</main>

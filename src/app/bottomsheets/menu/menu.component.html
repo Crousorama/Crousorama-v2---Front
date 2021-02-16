@@ -1,0 +1,99 @@
+<div class="main">
+
+  <section class="title">
+    <span>Menu</span>
+  </section>
+
+  <div class="buttons-container">
+
+    <div>
+      <div matRipple class="button">
+        <mat-icon>pie_chart</mat-icon>
+        <span>Portfolio</span>
+      </div>
+    </div>
+
+    <div>
+      <div matRipple class="button">
+        <mat-icon>trending_up</mat-icon>
+        <span>Marché</span>
+      </div>
+    </div>
+
+    <div>
+      <div matRipple class="button">
+        <mat-icon>fact_check</mat-icon>
+        <span>Actualités</span>
+      </div>
+    </div>
+
+    <div>
+      <div matRipple class="button">
+        <mat-icon>pie_chart</mat-icon>
+        <span>Portfolio</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="stocks-container">
+
+    <div class="stock" *ngFor="let stock of userStocks">
+      <img alt="logo stock" src="https://logo.clearbit.com/{{getCompanyName(stock.fullName)}}.com"/>
+      <section>
+        <b>{{stock.fullName}}</b>
+        <span>{{stock.bought_value}} €</span>
+      </section>
+    </div>
+<!--    <div class="stock">
+
+      <img alt="logo tesla" src="https://logo.clearbit.com/tesla.com"/>
+      <section>
+        <b>Tesla</b>
+        <span>31.12 €</span>
+      </section>
+    </div>
+    <div class="stock">
+
+      <img alt="logo tesla" src="https://logo.clearbit.com/tesla.com"/>
+      <section>
+        <b>Tesla</b>
+        <span>31.12 €</span>
+      </section>
+    </div>
+    <div class="stock">
+
+      <img alt="logo tesla" src="https://logo.clearbit.com/tesla.com"/>
+      <section>
+        <b>Tesla</b>
+        <span>31.12 €</span>
+      </section>
+    </div>
+    <div class="stock">
+
+      <img alt="logo tesla" src="https://logo.clearbit.com/tesla.com"/>
+      <section>
+        <b>Tesla</b>
+        <span>31.12 €</span>
+      </section>
+    </div>
+    <div class="stock">
+
+      <img alt="logo tesla" src="https://logo.clearbit.com/tesla.com"/>
+      <section>
+        <b>Tesla</b>
+        <span>31.12 €</span>
+      </section>
+    </div>-->
+
+  </div>
+
+  <div class="footer">
+
+    <button mat-button (click)="bottomSheetRef.dismiss()">
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+
+  </div>
+
+</div>
