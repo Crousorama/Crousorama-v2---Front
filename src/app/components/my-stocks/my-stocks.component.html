@@ -17,7 +17,7 @@
         </section>
 
         <section class="values" [ngClass]="{'green': getPercentage(us) > 0, 'red': getPercentage(us) < 0}">
-          <span>{{getCurrentValue(us.symbol, us.qty)}}</span>
+          <span>{{getCurrentValue(us.symbol, us.qty) | number: '1.2-3'}}</span>
           <section>
             <span>{{getPercentage(us) | number:'1.2-2'}} %</span>
             <mat-icon *ngIf="getPercentage(us) > 0">trending_up</mat-icon>

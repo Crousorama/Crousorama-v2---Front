@@ -67,7 +67,7 @@ export class MyStocksComponent implements OnInit {
   }
 
   croppedName(fullName: string): string {
-    return fullName.length > 10 ? fullName.substring(0, 7) + '...' : fullName;
+    return fullName.length > 9 ? fullName.substring(0, 6) + '...' : fullName;
   }
 
   getCurrentValue(symbol: string, quantity: number): number {

@@ -7,14 +7,14 @@
   <div class="buttons-container">
 
     <div>
-      <div matRipple class="button">
+      <div matRipple class="button" [routerLink]="'my-stocks'" (click)="bottomSheetRef.dismiss()">
         <mat-icon>pie_chart</mat-icon>
         <span>Portfolio</span>
       </div>
     </div>
 
     <div>
-      <div matRipple class="button">
+      <div matRipple class="button" [routerLink]="'search'" (click)="bottomSheetRef.dismiss()">
         <mat-icon>trending_up</mat-icon>
         <span>Marché</span>
       </div>
@@ -45,46 +45,6 @@
         <span>{{stock.bought_value}} €</span>
       </section>
     </div>
-<!--    <div class="stock">
-
-      <img alt="logo tesla" src="https://logo.clearbit.com/tesla.com"/>
-      <section>
-        <b>Tesla</b>
-        <span>31.12 €</span>
-      </section>
-    </div>
-    <div class="stock">
-
-      <img alt="logo tesla" src="https://logo.clearbit.com/tesla.com"/>
-      <section>
-        <b>Tesla</b>
-        <span>31.12 €</span>
-      </section>
-    </div>
-    <div class="stock">
-
-      <img alt="logo tesla" src="https://logo.clearbit.com/tesla.com"/>
-      <section>
-        <b>Tesla</b>
-        <span>31.12 €</span>
-      </section>
-    </div>
-    <div class="stock">
-
-      <img alt="logo tesla" src="https://logo.clearbit.com/tesla.com"/>
-      <section>
-        <b>Tesla</b>
-        <span>31.12 €</span>
-      </section>
-    </div>
-    <div class="stock">
-
-      <img alt="logo tesla" src="https://logo.clearbit.com/tesla.com"/>
-      <section>
-        <b>Tesla</b>
-        <span>31.12 €</span>
-      </section>
-    </div>-->
 
   </div>
 

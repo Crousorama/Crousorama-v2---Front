@@ -1,0 +1,15 @@
+form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+
+  mat-form-field {
+    width: 80%;
+
+    input {
+      height: 20px;
+    }
+  }
+}

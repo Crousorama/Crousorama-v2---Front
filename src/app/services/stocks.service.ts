@@ -14,4 +14,8 @@ export class StocksService {
   getStock(symbol: string): Observable<any> {
     return this.http.get(`/stocks/${symbol}`);
   }
+
+  searchStock(q: string): Observable<any> {
+    return this.http.get(`/stocks?q=${q}`);
+  }
 }

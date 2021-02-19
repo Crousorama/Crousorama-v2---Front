@@ -13,19 +13,25 @@ import { MenuComponent } from './bottomsheets/menu/menu.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ProdInterceptor} from './interceptors/prod.interceptor';
 import {LocalInterceptor} from './interceptors/local.interceptor';
+import { SearchComponent } from './components/search/search.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { StockInfoComponent } from './components/stock-info/stock-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyStocksComponent,
-    MenuComponent
+    MenuComponent,
+    SearchComponent,
+    SearchBarComponent,
+    StockInfoComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

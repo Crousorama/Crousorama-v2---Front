@@ -71,9 +71,14 @@
     flex-direction: row;
     justify-content: flex-start;
     margin: 20px 0;
-    max-width: 100vw;
     overflow: auto;
+    max-width: 100vw;
     padding: 15px 0;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .stock {
       display: flex;

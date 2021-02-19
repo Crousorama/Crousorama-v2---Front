@@ -19,7 +19,6 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.userStockService.getUserStocks().subscribe((stocks: UserStocks) => {
-      console.log('stocks', stocks);
       this.stocksLoading = false;
       this.userStocks = [
         ...stocks.pea,

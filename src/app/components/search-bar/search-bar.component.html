@@ -1,0 +1,20 @@
+<mat-progress-bar mode="indeterminate" *ngIf="searching"></mat-progress-bar>
+
+
+<form [formGroup]="searchForm">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Rechercher</mat-label>
+    <label>
+      <input matInput formControlName="search" autocomplete="off" [matAutocomplete]="auto">
+    </label>
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of searchResults"
+                  (click)="moveToStock(option.symbol)"
+                  [value]="option">
+        {{option.longname}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+</form>
