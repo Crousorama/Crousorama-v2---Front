@@ -1,0 +1,23 @@
+mat-list {
+  height: 65vh;
+
+  ::ng-deep.mat-subheader {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .right-list-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}
+
+.red {
+  color: #f44336;
+}
+
+.green {
+  color: #2f863b;
+}

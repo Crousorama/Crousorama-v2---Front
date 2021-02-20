@@ -18,4 +18,12 @@ export class StocksService {
   searchStock(q: string): Observable<any> {
     return this.http.get(`/stocks?q=${q}`);
   }
+
+  getPalmares(): Observable<any> {
+    return this.http.get(`/stocks/palmares`);
+  }
+
+  getPalmaresDividendes(): Observable<any> {
+    return this.http.get(`/stocks/palmares_dividends`);
+  }
 }

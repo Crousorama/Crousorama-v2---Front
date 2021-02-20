@@ -16,6 +16,8 @@ import {LocalInterceptor} from './interceptors/local.interceptor';
 import { SearchComponent } from './components/search/search.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { StockInfoComponent } from './components/stock-info/stock-info.component';
+import { PalmaresComponent } from './components/palmares/palmares.component';
+import { PalmaresDividendsComponent } from './components/palmares-dividends/palmares-dividends.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { StockInfoComponent } from './components/stock-info/stock-info.component
     MenuComponent,
     SearchComponent,
     SearchBarComponent,
-    StockInfoComponent
+    StockInfoComponent,
+    PalmaresComponent,
+    PalmaresDividendsComponent
   ],
   imports: [
     BrowserModule,

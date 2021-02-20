@@ -1,0 +1,18 @@
+mat-list {
+  height: 65vh;
+
+  .right-list-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}
+
+.red {
+  color: #f44336;
+}
+
+.green {
+  color: #2f863b;
+}

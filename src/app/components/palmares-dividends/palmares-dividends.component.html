@@ -1,0 +1,26 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<mat-list>
+  <div mat-subheader>
+    <span>Palmarès dividendes</span>
+    <mat-button-toggle-group name="Sort value" [(ngModel)]="currentSort" (ngModelChange)="sortChanged()">
+      <mat-button-toggle value="rend">Rend. +</mat-button-toggle>
+      <mat-button-toggle value="div">Div. +</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <mat-list-item *ngFor="let p of palmaresDividendes" (click)="moveToStockInfo(p['symbol'])">
+    <mat-icon mat-list-icon [ngClass]="getClass(p)">
+      {{p['Var.'].includes('-') ? 'trending_down' : 'trending_up'}}
+    </mat-icon>
+    <div mat-line>{{p['Libellé']}}</div>
+    <div mat-line *ngFor="let year of getYears(p)">
+      <span>{{year}} - </span><b>Div.:</b> {{p['Div. ' + year]}} / <b>Rend.</b> {{p['Rend. ' + year]}}
+    </div>
+
+    <div class="right-list-panel">
+      <span [ngClass]="getClass(p)">{{p.Dernier}}</span>
+      <span [ngClass]="getClass(p)">{{p['Var.']}}</span>
+    </div>
+  </mat-list-item>
+
+</mat-list>

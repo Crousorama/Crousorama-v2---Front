@@ -1,0 +1,18 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<mat-list>
+  <div mat-subheader>Palmarès</div>
+  <mat-list-item *ngFor="let p of palmares" (click)="moveToStockInfo(p)">
+    <mat-icon mat-list-icon [ngClass]="getClass(p.variation)">
+      {{p.variation.includes('-') ? 'trending_down' : 'trending_up'}}
+    </mat-icon>
+    <div mat-line>{{p.indice}}</div>
+    <div mat-line> {{p.meta}} </div>
+
+    <div class="right-list-panel">
+      <span [ngClass]="getClass(p.variation)">{{p.value}}</span>
+      <span [ngClass]="getClass(p.variation)">{{p.variation}}</span>
+    </div>
+  </mat-list-item>
+
+</mat-list>
