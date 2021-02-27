@@ -2,6 +2,10 @@ service: default
 runtime: nodejs12
 
 handlers:
+  - url: /manifest\.webmanifest
+    static_files: dist/front/manifest.webmanifest
+    upload: dist/front/manifest\.webmanifest
+
   - url: /favicon\.ico
     static_files: dist/front/favicon.ico
     upload: dist/front/favicon\.ico
