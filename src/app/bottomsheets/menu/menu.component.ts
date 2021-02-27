@@ -14,17 +14,17 @@ export class MenuComponent implements OnInit {
               private userStockService: UserStockService) {
   }
 
-  userStocks: UserStock[] = [];
   stocksLoading = true;
 
-  ngOnInit(): void {
-    this.userStockService.getUserStocks().subscribe((stocks: UserStocks) => {
-      this.stocksLoading = false;
-      this.userStocks = [
-        ...stocks.pea,
-        ...stocks.titres,
-      ];
-    });
+  async ngOnInit(): Promise<void> {
+    if (!this.userStocks) {
+      await this.userStockService.loadUserStocks();
+    }
+    this.stocksLoading = false;
+  }
+
+  get userStocks(): UserStock[] {
+    return this.userStockService.userStocks;
   }
 
   getCompanyName(stockName: string): string {

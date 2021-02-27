@@ -1,0 +1,18 @@
+<main>
+
+  <div class="chips-container">
+    <mat-chip-list aria-label="Country selection">
+      <mat-chip *ngFor="let c of countries; let i = index;"
+                (click)="currentCountry = c.value; selectedIndex = i;"
+                [selected]="c.value === currentCountry">{{c.label}}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <mat-tab-group [selectedIndex]="selectedIndex">
+    <mat-tab label="" *ngFor="let c of countries">
+      <app-news-list [country]="c.value"></app-news-list>
+    </mat-tab>
+  </mat-tab-group>
+
+
+</main>

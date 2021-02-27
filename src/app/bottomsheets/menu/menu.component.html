@@ -21,7 +21,7 @@
     </div>
 
     <div>
-      <div matRipple class="button">
+      <div matRipple class="button" [routerLink]="'news'" (click)="bottomSheetRef.dismiss()">
         <mat-icon>fact_check</mat-icon>
         <span>Actualités</span>
       </div>
@@ -29,8 +29,8 @@
 
     <div>
       <div matRipple class="button">
-        <mat-icon>pie_chart</mat-icon>
-        <span>Portfolio</span>
+        <mat-icon>hourglass_empty</mat-icon>
+        <span>À venir</span>
       </div>
     </div>
 

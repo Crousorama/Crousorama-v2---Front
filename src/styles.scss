@@ -21,14 +21,14 @@ $front-theme: mat-dark-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-@font-face {
+/*@font-face {
   font-family: "Manrope";
   src: url(assets/font/Manrope-VariableFont_wght.ttf) format("truetype");
 }
 
 * {
   font-family: "Manrope", "Roboto", serif;
-}
+}*/
 
 main {
   width: 100vw;

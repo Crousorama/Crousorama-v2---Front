@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,14 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { StockInfoComponent } from './components/stock-info/stock-info.component';
 import { PalmaresComponent } from './components/palmares/palmares.component';
 import { PalmaresDividendsComponent } from './components/palmares-dividends/palmares-dividends.component';
+import {ChartsModule} from 'ng2-charts';
+import { NewsComponent } from './components/news/news.component';
+import { NewsListComponent } from './components/news/news-list/news-list.component';
+import {registerLocaleData} from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr, 'fr');
+
 
 @NgModule({
   declarations: [
@@ -28,9 +36,12 @@ import { PalmaresDividendsComponent } from './components/palmares-dividends/palm
     SearchBarComponent,
     StockInfoComponent,
     PalmaresComponent,
-    PalmaresDividendsComponent
+    PalmaresDividendsComponent,
+    NewsComponent,
+    NewsListComponent
   ],
   imports: [
+    ChartsModule,
     BrowserModule,
     MaterialModule,
     FormsModule,
@@ -45,7 +56,8 @@ import { PalmaresDividendsComponent } from './components/palmares-dividends/palm
       provide: HTTP_INTERCEPTORS,
       useClass: environment.production ? ProdInterceptor : LocalInterceptor,
       multi: true
-    }
+    },
+    { provide: LOCALE_ID, useValue: 'fr' }
   ],
   bootstrap: [AppComponent]
 })

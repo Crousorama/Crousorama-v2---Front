@@ -37,4 +37,5 @@ export class SearchComponent implements OnInit {
       value.selected = false;
     });
   }
+
 }

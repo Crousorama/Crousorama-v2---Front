@@ -12,7 +12,7 @@
       <mat-option *ngFor="let option of searchResults"
                   (click)="moveToStock(option.symbol)"
                   [value]="option">
-        {{option.longname}}
+        {{option.longname ? option.longname : option.shortname}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

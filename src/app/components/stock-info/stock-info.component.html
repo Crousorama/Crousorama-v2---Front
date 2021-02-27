@@ -1,1 +1,72 @@
-<p>stock-info works!</p>
+<main>
+  <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+  <div *ngIf="stockData" class="main-container">
+    <span class="stock-name">{{stockData.full_name}}</span>
+
+    <div class="price-container">
+
+      <span class="price">{{stockData.currency}} {{stockData.price}}</span>
+
+      <div class="variation" [ngClass]="{'red': getPercentage() < 1, 'green': getPercentage() > 0}">
+        <span>{{stockData.price - stockData.previous_close | number: '1.3-3'}}</span>
+        <span>{{getPercentage() | number: '1.2-2'}} %</span>
+      </div>
+
+    </div>
+
+    <div class="open-close">
+
+      <section>
+        <span>Close <b>{{stockData.prices.close[0] | number: '1.3-3'}}</b></span>
+        <span>Open <b>{{stockData.prices.open[0] | number: '1.3-3'}}</b></span>
+      </section>
+
+    </div>
+
+    <div>
+
+      <canvas baseChart
+              [datasets]="datasets"
+              [labels]="labels"
+              [options]="options"
+              [chartType]="'line'"></canvas>
+
+    </div>
+
+    <div>
+      <mat-chip-list>
+        <mat-chip *ngFor="let value of stockData.validRanges"
+                  (click)="currentRange = value; rangeChanged()"
+                  [selected]="value === currentRange">{{value}}</mat-chip>
+      </mat-chip-list>
+    </div>
+
+    <div class="news-container">
+
+      <mat-progress-bar mode="indeterminate" *ngIf="newsLoading"></mat-progress-bar>
+
+      <section class="title">
+        <b>News ({{news.length}})</b>
+      </section>
+
+      <section class="news-list">
+
+        <div class="news" *ngFor="let n of news" (click)="redirectToNews(n)">
+
+          <span class="title">{{n.title}}</span>
+
+          <b>{{n.publisher}}</b>
+
+          <span>{{getDate(n.providerPublishTime * 1000)}}</span>
+
+          <mat-divider></mat-divider>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </div>
+</main>

@@ -9,7 +9,7 @@
 
   <div class="all-stocks-container">
 
-    <div class="stock-container" *ngFor="let us of userStocks">
+    <div class="stock-container" *ngFor="let us of userStocks" (click)="moveToStockInfo(us.symbol)">
       <section>
         <section class="names">
           <b>{{us.symbol}}</b>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="stock-container">
-      <section class="add-stock">
+      <section class="add-stock" [routerLink]="'/search'">
         <mat-icon>add</mat-icon>
       </section>
     </div>

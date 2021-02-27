@@ -14,6 +14,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatDividerModule} from '@angular/material/divider';
 
 const material = [
   MatButtonModule,
@@ -29,7 +30,8 @@ const material = [
   MatTabsModule,
   MatAutocompleteModule,
   MatListModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatDividerModule
 ];
 
 @NgModule({

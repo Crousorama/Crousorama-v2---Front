@@ -1,12 +1,16 @@
 export interface Stock {
   symbol: string;
-  open: number;
-  high: number;
-  low: number;
   price: number;
-  volume: number;
-  latest_trading_day: string;
+  currency: string;
   previous_close: number;
-  change: number;
-  change_percent: string;
+  full_name: string;
+  validRanges: string[];
+  timestamps: number[];
+  prices: {
+    low: number[];
+    open: number[];
+    volume: number[];
+    high: number[];
+    close: number[];
+  };
 }
