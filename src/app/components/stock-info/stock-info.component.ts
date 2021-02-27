@@ -5,6 +5,10 @@ import {ActivatedRoute} from '@angular/router';
 import {ChartOptions} from 'chart.js';
 import {News} from '../../models/news';
 import {NewsService} from '../../services/news.service';
+import {UserStockService} from '../../services/user-stock.service';
+import {MatBottomSheet} from '@angular/material/bottom-sheet';
+import {HandleFavoriteComponent} from '../../bottomsheets/handle-favorite/handle-favorite.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-stock-info',
@@ -32,7 +36,6 @@ export class StockInfoComponent implements OnInit {
   datasets = [];
   labels = [];
   options: ChartOptions = {
-    // responsive: false,
     elements: {
       point: {
         radius: 0
@@ -56,11 +59,17 @@ export class StockInfoComponent implements OnInit {
   constructor(
     private stocksService: StocksService,
     private route: ActivatedRoute,
-    private newsService: NewsService
+    private newsService: NewsService,
+    private userStockService: UserStockService,
+    private bottomSheet: MatBottomSheet,
+    private snackbar: MatSnackBar
   ) {
   }
 
   async ngOnInit(): Promise<void> {
+    if (!this.userStockService.userStocks) {
+      await this.userStockService.loadUserStocks();
+    }
     if (this.stockSymbol) {
       this.stockData = await this.stocksService.getStock(this.stockSymbol).toPromise();
       this.filterRanges();
@@ -136,4 +145,21 @@ export class StockInfoComponent implements OnInit {
   getDate(timestamp: number): string {
     return new Date(timestamp).toLocaleString();
   }
+
+  get isInUserStock(): boolean {
+    return this.userStockService.userStocks ?
+      this.userStockService.userStocks.stocks.map(s => s.symbol).indexOf(this.stockData.symbol) > -1 :
+      false;
+  }
+
+  handleFavorite(): void {
+    this.bottomSheet.open(HandleFavoriteComponent, {
+      data: this.stockData
+    }).afterDismissed().subscribe(action => {
+      if (action) {
+        this.snackbar.open(`Action ${action} !`, 'Fermer', {duration: 2000});
+      }
+    });
+  }
+
 }

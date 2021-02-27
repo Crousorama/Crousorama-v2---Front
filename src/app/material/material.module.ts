@@ -12,9 +12,9 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatListModule} from '@angular/material/list';
-import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const material = [
   MatButtonModule,
@@ -31,7 +31,8 @@ const material = [
   MatAutocompleteModule,
   MatListModule,
   MatButtonToggleModule,
-  MatDividerModule
+  MatDividerModule,
+  MatSnackBarModule
 ];
 
 @NgModule({

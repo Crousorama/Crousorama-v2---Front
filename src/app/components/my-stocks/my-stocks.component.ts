@@ -27,6 +27,7 @@ export class MyStocksComponent implements OnInit {
 
     if (!this.userStocks) {
       await this.userStocksService.loadUserStocks();
+      console.log(this.userStocksService.userStocks);
     }
 
     const qTab = [];
@@ -52,7 +53,8 @@ export class MyStocksComponent implements OnInit {
   }
 
   get userStocks(): UserStock[] {
-    return this.userStocksService.userStocks;
+    return this.userStocksService.userStocks ?
+      this.userStocksService.userStocks.stocks : null;
   }
 
   animateValue(start, end, duration): void {

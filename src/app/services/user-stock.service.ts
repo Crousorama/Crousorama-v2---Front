@@ -9,7 +9,7 @@ import {map} from 'rxjs/operators';
 })
 export class UserStockService {
 
-  userStocks: UserStock[] = null;
+  userStocks: UserStocks = null;
 
   constructor(
     private http: HttpClient
@@ -18,16 +18,16 @@ export class UserStockService {
 
   loadUserStocks(): Promise<void> {
     return this.http.get('/user_stocks').pipe(map((userStocks: UserStocks) => {
-      this.userStocks = [
-        ...userStocks.titres,
-        ...userStocks.pea,
-      ];
+      this.userStocks = userStocks;
       return;
     })).toPromise();
   }
 
-  getUserStocks(): Observable<any> {
-    return this.http.get('/user_stocks');
+  updateUserStocks(userStocks: UserStocks): Observable<any> {
+    return this.http.patch('/user_stocks', userStocks).pipe(map((newUserStocks: UserStocks) => {
+      this.userStocks = newUserStocks;
+      return newUserStocks;
+    }));
   }
 
 }

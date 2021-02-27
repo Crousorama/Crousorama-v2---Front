@@ -2,7 +2,16 @@
   <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 
   <div *ngIf="stockData" class="main-container">
-    <span class="stock-name">{{stockData.full_name}}</span>
+
+    <div class="name-container">
+
+      <span class="stock-name">{{stockData.full_name}}</span>
+
+      <button mat-icon-button (click)="handleFavorite()">
+        <mat-icon>{{isInUserStock ? 'favorite' : 'favorite_border'}}</mat-icon>
+      </button>
+
+    </div>
 
     <div class="price-container">
 

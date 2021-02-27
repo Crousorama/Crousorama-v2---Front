@@ -5,6 +5,13 @@
   display: flex;
   flex-direction: column;
 
+  .name-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .stock-name {
     color: #b5b8c3;
   }

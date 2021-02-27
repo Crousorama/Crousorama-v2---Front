@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
   }
 
   get userStocks(): UserStock[] {
-    return this.userStockService.userStocks;
+    return this.userStockService.userStocks.stocks;
   }
 
   getCompanyName(stockName: string): string {

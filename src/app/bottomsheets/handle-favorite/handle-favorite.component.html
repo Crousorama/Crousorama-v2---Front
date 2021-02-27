@@ -1,0 +1,28 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+<header>
+  <span>{{isInUserStocks ? 'Supprimer l\'action' : 'Ajouter l\'action'}}</span>
+  <mat-divider></mat-divider>
+</header>
+
+<form *ngIf="!isInUserStocks && form" [formGroup]="form">
+
+  <mat-form-field>
+    <mat-label>Quantité achetée</mat-label>
+    <input matInput type="number" formControlName="qty">
+    <span matSuffix>action{{qty > 1 ? 's' : ''}}</span>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Acheté au prix de</mat-label>
+    <input matInput type="number" formControlName="bought_value">
+    <span matSuffix>{{data.currency}}</span>
+  </mat-form-field>
+
+</form>
+
+<footer>
+  <button mat-raised-button color="primary" (click)="confirm()">
+    Confirmer
+  </button>
+</footer>

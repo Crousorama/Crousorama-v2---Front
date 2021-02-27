@@ -1,6 +1,5 @@
 export interface UserStocks {
-  pea: UserStock[];
-  titres: UserStock[];
+  stocks: UserStock[];
 }
 
 export interface UserStock {

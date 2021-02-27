@@ -23,6 +23,7 @@ import { NewsComponent } from './components/news/news.component';
 import { NewsListComponent } from './components/news/news-list/news-list.component';
 import {registerLocaleData} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { HandleFavoriteComponent } from './bottomsheets/handle-favorite/handle-favorite.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -38,7 +39,8 @@ registerLocaleData(localeFr, 'fr');
     PalmaresComponent,
     PalmaresDividendsComponent,
     NewsComponent,
-    NewsListComponent
+    NewsListComponent,
+    HandleFavoriteComponent,
   ],
   imports: [
     ChartsModule,
