@@ -6,7 +6,7 @@
     <div mat-line> {{n.author}} </div>
     <div mat-line> {{n.publishedAt | date: 'medium'}} </div>
     <div class="button-container">
-      <img [src]="n.urlToImage" />
+      <img [src]="n.urlToImage" [alt]="n.title"/>
       <button mat-raised-button (click)="openArticle(n)">
         Lire l'article
       </button>
