@@ -21,7 +21,7 @@ import {PalmaresDividendsComponent} from './components/palmares-dividends/palmar
 import {ChartsModule} from 'ng2-charts';
 import {NewsComponent} from './components/news/news.component';
 import {NewsListComponent} from './components/news/news-list/news-list.component';
-import {registerLocaleData} from '@angular/common';
+import {HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import {HandleFavoriteComponent} from './bottomsheets/handle-favorite/handle-favorite.component';
 
@@ -62,7 +62,8 @@ registerLocaleData(localeFr, 'fr');
       useClass: environment.production ? ProdInterceptor : LocalInterceptor,
       multi: true
     },
-    {provide: LOCALE_ID, useValue: 'fr'}
+    {provide: LOCALE_ID, useValue: 'fr'},
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
   ],
   bootstrap: [AppComponent]
 })

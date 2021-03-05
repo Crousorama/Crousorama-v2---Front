@@ -11,6 +11,7 @@ const routes: Routes = [
   {path: 'search', component: SearchComponent},
   {path: 'news', component: NewsComponent},
   {path: 'stock/:symbol', component: StockInfoComponent},
+  {path: '*/*', component: MyStocksComponent},
 ];
 
 @NgModule({
