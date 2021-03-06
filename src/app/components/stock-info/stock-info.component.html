@@ -7,7 +7,7 @@
 
       <span class="stock-name">{{stockData.full_name}}</span>
 
-      <button mat-icon-button (click)="handleFavorite()">
+      <button name="add-stock-button" mat-icon-button (click)="handleFavorite()">
         <mat-icon>{{isInUserStock ? 'favorite' : 'favorite_border'}}</mat-icon>
       </button>
 
@@ -44,7 +44,7 @@
     </div>
 
     <div>
-      <mat-chip-list>
+      <mat-chip-list aria-label="Date ranges">
         <mat-chip *ngFor="let value of stockData.validRanges"
                   (click)="currentRange = value; rangeChanged()"
                   [selected]="value === currentRange">{{value}}</mat-chip>
