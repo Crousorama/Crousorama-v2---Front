@@ -4,7 +4,7 @@
 
   <div class="tabs">
 
-    <mat-chip-list aria-label="Tab selection">
+    <mat-chip-list aria-label="Palmares selection">
       <mat-chip *ngFor="let chip of chips; let i = index;"
                 [selected]="chip.selected"
                 (click)="chip.selected = !chip.selected; chipSelectedChanged(i)"

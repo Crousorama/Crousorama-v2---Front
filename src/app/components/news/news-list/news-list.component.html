@@ -4,7 +4,7 @@
   <mat-list-item *ngFor="let n of news">
     <div mat-line class="title">{{n.title}}</div>
     <div mat-line> {{n.author}} </div>
-    <div mat-line> {{n.publishedAt | date: 'medium'}} </div>
+    <div mat-line> {{n.publishedAt | date: 'dd-MM-yy HH:mm:ss'}} </div>
     <div class="button-container">
       <img [src]="n.urlToImage" [alt]="n.title"/>
       <button mat-raised-button (click)="openArticle(n)">

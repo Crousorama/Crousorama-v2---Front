@@ -5,7 +5,7 @@
   "background_color": "#2c303e",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "https://crousorama.appspot.com",
   "icons": [
       {
         "src": "assets/windows10/Square71x71Logo.scale-400.png",
