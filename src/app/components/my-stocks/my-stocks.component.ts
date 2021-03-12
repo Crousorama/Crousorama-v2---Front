@@ -45,10 +45,7 @@ export class MyStocksComponent implements OnInit {
 
     Promise.all(qTab).then(() => {
       this.loading = false;
-      this.animateValue(0, amount, 2000);
-      setTimeout(() => {
-        this.totalAmount = amount;
-      }, 2500);
+      this.totalAmount = amount;
     });
   }
 
