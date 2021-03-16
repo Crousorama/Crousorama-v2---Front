@@ -79,6 +79,7 @@ export class StockInfoComponent implements OnInit {
     } else {
       this.route.params.subscribe(params => {
         this.stocksService.getStock(params.symbol).subscribe((stockData: Stock) => {
+          console.log('stockData', stockData);
           this.stockData = stockData;
           this.filterRanges();
           this.drawChart();

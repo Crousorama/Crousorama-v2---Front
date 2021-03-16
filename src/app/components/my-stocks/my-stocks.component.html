@@ -4,6 +4,9 @@
 
   <div class="total-balance-container">
     <span class="amount">{{totalAmount | number: '1.2-2'}} €</span>
+    <span class="amount-money" [ngClass]="{'green': totalPlusMoinsValue > 0, 'red': totalPlusMoinsValue < 0}">
+      {{totalPlusMoinsValue > 0 ? '+' : '-'}}
+      {{totalPlusMoinsValue | number: '1.2-2'}} €</span>
     <span class="subtitle">Total portfolio</span>
   </div>
 
@@ -17,7 +20,10 @@
         </section>
 
         <section class="values" [ngClass]="{'green': getPercentage(us) > 0, 'red': getPercentage(us) < 0}">
-          <span>{{getCurrentValue(us.symbol, us.qty) | number: '1.2-3'}}</span>
+          <span>
+            {{getCurrentValue(us.symbol, us.qty) | number: '1.2-3'}} <br/>
+            {{getValueDelta(us)}}</span>
+          <span>{{us.qty}} stock{{us.qty > 0 ? 's' : ''}}</span>
           <section>
             <span>{{getPercentage(us) | number:'1.2-2'}} %</span>
             <mat-icon *ngIf="getPercentage(us) > 0">trending_up</mat-icon>

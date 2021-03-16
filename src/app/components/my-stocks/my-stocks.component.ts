@@ -93,4 +93,28 @@ export class MyStocksComponent implements OnInit {
   moveToStockInfo(symbol): void {
     this.router.navigate(['stock/' + symbol]);
   }
+
+  getValueDelta(us: UserStock): string {
+    const delta = this.getDelta(us);
+    return delta > 0 ? `(+${delta * us.qty})` : `(-${delta * us.qty})`;
+  }
+
+  getDelta(us): number {
+    const stock = this.stocks.find(s => s.symbol === us.symbol);
+    if (!stock) {
+      return null;
+    }
+    return Math.round((stock.price - us.bought_value) * 100) / 100;
+  }
+
+  get totalPlusMoinsValue(): number {
+    if (!this.userStocks) {
+      return 0;
+    }
+    let total = 0;
+    this.userStocks.forEach(us => {
+      total += this.getDelta(us) * us.qty;
+    });
+    return total;
+  }
 }
