@@ -96,7 +96,7 @@ export class MyStocksComponent implements OnInit {
 
   getValueDelta(us: UserStock): string {
     const delta = this.getDelta(us);
-    return delta > 0 ? `(+${delta * us.qty})` : `(-${delta * us.qty})`;
+    return delta > 0 ? `(+${(delta * us.qty).toFixed(3)})` : `(-${(delta * us.qty).toFixed(3)})`;
   }
 
   getDelta(us): number {
