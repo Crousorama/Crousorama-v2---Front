@@ -1,6 +1,14 @@
-<router-outlet></router-outlet>
+<mat-drawer-container autosize>
+  <mat-drawer mode="side" [opened]="!responsiveService.isMobile">
+    <app-drawer-container></app-drawer-container>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
 
-<footer>
+
+<footer *ngIf="responsiveService.isMobile">
 
   <button mat-button (click)="openMenu()" aria-label="Bouton ouvrant le menu">
     <mat-icon>dialpad</mat-icon>

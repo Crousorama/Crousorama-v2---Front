@@ -25,14 +25,20 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-height: 50vh;
   overflow-y: auto;
+
+  @media screen and (max-width: 1024px) {
+    & {
+      max-height: 50vh;
+    }
+  }
 
   .stock-container {
     flex: 0 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     .add-stock {
       border: 1px dashed #3f465a;

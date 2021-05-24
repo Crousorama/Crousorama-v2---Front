@@ -1,6 +1,14 @@
 mat-list {
   height: 65vh;
 
+  @media screen and (min-width: 1024px) {
+    height: auto;
+  }
+
+  mat-list-item {
+    cursor: pointer;
+  }
+
   .right-list-panel {
     display: flex;
     flex-direction: column;

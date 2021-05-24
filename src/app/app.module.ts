@@ -24,6 +24,7 @@ import {NewsListComponent} from './components/news/news-list/news-list.component
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import {HandleFavoriteComponent} from './bottomsheets/handle-favorite/handle-favorite.component';
+import { DrawerContainerComponent } from './components/drawer-container/drawer-container.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import {HandleFavoriteComponent} from './bottomsheets/handle-favorite/handle-fav
     NewsComponent,
     NewsListComponent,
     HandleFavoriteComponent,
+    DrawerContainerComponent,
   ],
   imports: [
     ChartsModule,

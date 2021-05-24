@@ -8,6 +8,10 @@
   mat-chip-list {
     background-color: #616161;
     border-radius: 16px;
+
+    mat-chip {
+      cursor: pointer;
+    }
   }
 
   mat-tab-group {

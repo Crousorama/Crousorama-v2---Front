@@ -1,0 +1,19 @@
+<mat-list>
+  <mat-list-item *ngFor="let route of routes"
+                 [ngClass]="{'selected': isCurrentUrl(route.path)}"
+                 (click)="moveTo(route.path)" matRipple>
+    <mat-icon mat-list-icon>{{route.icon}}</mat-icon>
+    <div mat-line>{{route.label}}</div>
+  </mat-list-item>
+</mat-list>
+
+<mat-list class="my-stocks-list">
+  <div mat-subheader>Mes actions</div>
+  <mat-list-item *ngFor="let stock of userStocks"
+                 (click)="moveToStockInfo(stock.symbol)">
+    <img mat-list-icon src="https://logo.clearbit.com/{{getCompanyName(stock.fullName)}}.com"/>
+    <div mat-line>{{stock.fullName}}</div>
+    <div mat-line> {{stock.bought_value}} € </div>
+  </mat-list-item>
+
+</mat-list>

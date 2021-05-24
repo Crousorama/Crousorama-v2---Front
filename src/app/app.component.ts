@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatBottomSheet} from '@angular/material/bottom-sheet';
 import {MenuComponent} from './bottomsheets/menu/menu.component';
 import {PwaUpdatesService} from './services/pwa-updates.service';
+import {ResponsiveService} from './services/responsive.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import {PwaUpdatesService} from './services/pwa-updates.service';
 export class AppComponent implements OnInit {
 
   constructor(private bottomsheet: MatBottomSheet,
-              private pwaUpdateService: PwaUpdatesService) {
+              private pwaUpdateService: PwaUpdatesService,
+              public responsiveService: ResponsiveService) {
   }
 
   openMenu(): void {

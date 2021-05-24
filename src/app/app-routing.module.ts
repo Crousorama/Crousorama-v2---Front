@@ -7,7 +7,6 @@ import {NewsComponent} from './components/news/news.component';
 
 const routes: Routes = [
   {path: '', component: MyStocksComponent},
-  {path: 'my-stocks', component: MyStocksComponent},
   {path: 'search', component: SearchComponent},
   {path: 'news', component: NewsComponent},
   {path: 'stock/:symbol', component: StockInfoComponent},

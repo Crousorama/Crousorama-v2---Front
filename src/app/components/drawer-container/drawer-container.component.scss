@@ -1,0 +1,12 @@
+.my-stocks-list {
+  height: 50vh;
+  overflow-y: auto;
+}
+
+mat-list-item {
+  cursor: pointer;
+
+  &.selected {
+    background-color: #7d7d7d;
+  }
+}

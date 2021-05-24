@@ -4,6 +4,7 @@ import {StocksService} from '../../services/stocks.service';
 import {UserStock, UserStocks} from '../../models/user-stocks';
 import {Stock} from '../../models/stock';
 import {Router} from '@angular/router';
+import {ResponsiveService} from '../../services/responsive.service';
 
 @Component({
   selector: 'app-my-stocks',
@@ -15,7 +16,8 @@ export class MyStocksComponent implements OnInit {
   constructor(
     private userStocksService: UserStockService,
     private stocksService: StocksService,
-    private router: Router
+    private router: Router,
+    private responsiveService: ResponsiveService
   ) {
   }
 
@@ -27,7 +29,6 @@ export class MyStocksComponent implements OnInit {
 
     if (!this.userStocks) {
       await this.userStocksService.loadUserStocks();
-      console.log(this.userStocksService.userStocks);
     }
 
     const qTab = [];
@@ -54,23 +55,8 @@ export class MyStocksComponent implements OnInit {
       this.userStocksService.userStocks.stocks : null;
   }
 
-  animateValue(start, end, duration): void {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-      if (!startTimestamp) {
-        startTimestamp = timestamp;
-      }
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      this.totalAmount = Math.floor(progress * (end - start) + start);
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
-    };
-    window.requestAnimationFrame(step);
-  }
-
   croppedName(fullName: string): string {
-    return fullName.length > 9 ? fullName.substring(0, 6) + '...' : fullName;
+    return fullName.length > 9 && this.responsiveService.isMobile ? fullName.substring(0, 6) + '...' : fullName;
   }
 
   getCurrentValue(symbol: string, quantity: number): number {

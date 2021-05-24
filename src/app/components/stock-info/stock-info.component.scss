@@ -56,12 +56,20 @@
     justify-content: space-evenly;
   }
 
+  mat-chip-list mat-chip {
+    cursor: pointer;
+  }
+
   .news-container {
     height: 30vh;
     width: calc(100vw - 40px);
     background-color: #616161;
     border-radius: 25px;
     margin-top: 25px;
+
+    @media screen and (min-width: 1024px) {
+      width: 100%;
+    }
 
     section {
       color: white;
@@ -86,6 +94,7 @@
         height: 100%;
         width: calc(100% - 20px);
         padding: 0 10px;
+        cursor: pointer;
 
         mat-divider {
           width: 100%;

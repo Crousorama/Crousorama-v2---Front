@@ -1,6 +1,11 @@
 mat-list {
   max-height: calc(100vh - 64px - 100px);
 
+  @media screen and (min-width: 1024px) {
+    max-height: fit-content;
+    padding: 30px;
+  }
+
   mat-list-item {
     height: fit-content !important;
     margin: 40px 0;

@@ -19,7 +19,10 @@ $front-theme: mat-dark-theme((
 @include angular-material-theme($front-theme);
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 /*@font-face {
   font-family: "Manrope";
@@ -34,8 +37,13 @@ main {
   width: 100vw;
   height: 100vh;
   color: white;
-  background: rgb(44,48,62);
-  background: linear-gradient(180deg, rgba(44,48,62,1) 0%, rgba(19,22,35,1) 100%);
+  //background: rgb(44,48,62);
+  //background: linear-gradient(180deg, rgba(44,48,62,1) 0%, rgba(19,22,35,1) 100%);
+
+  @media screen and (min-width: 1024px) {
+    width: 100%;
+    min-height: fit-content;
+  }
 }
 
 .no-padding {

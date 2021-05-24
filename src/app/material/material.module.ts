@@ -15,6 +15,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 const material = [
   MatButtonModule,
@@ -32,7 +33,8 @@ const material = [
   MatListModule,
   MatButtonToggleModule,
   MatDividerModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatSidenavModule,
 ];
 
 @NgModule({
