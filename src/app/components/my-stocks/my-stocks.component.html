@@ -5,7 +5,7 @@
   <div class="total-balance-container">
     <span class="amount">{{totalAmount | number: '1.2-2'}} €</span>
     <span class="amount-money" [ngClass]="{'green': totalPlusMoinsValue > 0, 'red': totalPlusMoinsValue < 0}">
-      {{totalPlusMoinsValue > 0 ? '+' : '-'}}
+      {{totalPlusMoinsValue > 0 ? '+' : ''}}
       {{totalPlusMoinsValue | number: '1.2-2'}} €</span>
     <span class="subtitle">Total portfolio</span>
   </div>
